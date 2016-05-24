@@ -1,0 +1,4 @@
+﻿name: LibTypes
+main: com.fyxridd.lib.types.TypesPlugin
+version: 0.1.0
+depend: [LibCore]
