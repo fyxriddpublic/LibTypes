@@ -1,9 +1,10 @@
 package com.fyxridd.lib.types.api;
 
-import com.fyxridd.lib.types.TypesMain;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
+
+import com.fyxridd.lib.types.TypesPlugin;
 
 public class TypesApi {
     /**
@@ -12,7 +13,7 @@ public class TypesApi {
      * @param plugin 插件名,可为null(null时无效果)
      */
     public static void reloadTypes(String plugin) {
-        TypesMain.reloadTypes(plugin);
+        TypesPlugin.instance.getTypesManager().reloadTypes(plugin);
     }
 
     /**
@@ -23,7 +24,7 @@ public class TypesApi {
      * @return 是否符合类型
      */
     public static boolean checkEntity(String plugin, String type, EntityType entityType){
-        return TypesMain.checkEntity(plugin, type, entityType);
+        return TypesPlugin.instance.getTypesManager().checkEntity(plugin, type, entityType);
     }
 
     /**
@@ -34,7 +35,7 @@ public class TypesApi {
      * @return 是否符合类型
      */
     public static boolean checkItem(String plugin, String type, ItemStack is){
-        return TypesMain.checkItem(plugin, type, is);
+        return TypesPlugin.instance.getTypesManager().checkItem(plugin, type, is);
     }
 
     /**
@@ -46,7 +47,7 @@ public class TypesApi {
      * @return 是否符合类型
      */
     public static boolean checkBlock(String plugin, String type, Material material, byte data){
-        return TypesMain.checkBlock(plugin, type, material, data);
+        return TypesPlugin.instance.getTypesManager().checkBlock(plugin, type, material, data);
     }
 
     /**
@@ -56,6 +57,6 @@ public class TypesApi {
      * @return 是否是安全的方块
      */
     public static boolean isSafeBlock(Material material, byte data) {
-        return TypesMain.isSafeBlock(material, data);
+        return TypesPlugin.instance.getTypesManager().isSafeBlock(material, data);
     }
 }
