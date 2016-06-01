@@ -40,8 +40,10 @@ public class TypesManager{
 	        Bukkit.getPluginManager().registerEvent(ReloadConfigEvent.class, TypesPlugin.instance, EventPriority.HIGHEST, new EventExecutor() {
                 @Override
                 public void execute(Listener listener, Event e) throws EventException {
-                    ReloadConfigEvent event = (ReloadConfigEvent) e;
-                    if (event.getPlugin().equals(TypesPlugin.instance.pn)) reloadTypes(TypesPlugin.instance.pn);
+					if (e instanceof ReloadConfigEvent) {
+						ReloadConfigEvent event = (ReloadConfigEvent) e;
+						if (event.getPlugin().equals(TypesPlugin.instance.pn)) reloadTypes(TypesPlugin.instance.pn);
+					}
                 }
             }, TypesPlugin.instance);
 	    }
